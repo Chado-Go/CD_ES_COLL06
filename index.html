@@ -484,7 +484,7 @@
   z-index: 9000;
   overflow-y: auto;
   overflow-x: hidden;
-  background: #0d1018;
+  background: #120508;
   transition: opacity 0.65s cubic-bezier(.4,0,.2,1),
               transform 0.65s cubic-bezier(.4,0,.2,1);
 }
@@ -497,19 +497,18 @@
 
 
 :root {
-  --lp-ink:    #08090c;
-  --lp-deep:   #0d1018;
-  --lp-surface:#131720;
-  --lp-card:   #181d27;
-  --lp-border: rgba(255,255,255,0.07);
-  --lp-gold:   #d4a843;
-  --lp-gold2:  #f0c96a;
-  --lp-ember:  #e05c2a;
-  --lp-sky:    #4a9eff;
-  --lp-green:  #3ecf8e;
-  --lp-muted:  #6b7280;
-  --lp-light:  #e8e6e0;
-  --lp-white:  #f5f3ef;
+  --lp-ink:     #080305;
+  --lp-deep:    #0f0205;
+  --lp-surface: #180409;
+  --lp-card:    #1e0609;
+  --lp-border:  rgba(212,168,67,0.15);
+  --lp-gold:    #d4a843;
+  --lp-gold2:   #f2c95c;
+  --lp-ember:   #c8402a;
+  --lp-ember2:  #e05c2a;
+  --lp-muted:   #8a6860;
+  --lp-light:   #f2e8de;
+  --lp-white:   #faf4ee;
 }
 
 * {box-sizing:border-box;margin:0;padding:0;}
@@ -537,7 +536,7 @@ html {scroll-behavior:smooth;}
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:18px 48px;
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(13,16,24,0.85);
+  background:rgba(12,2,6,0.90);
   backdrop-filter:blur(20px) saturate(1.4);
   border-bottom:1px solid var(--lp-border);
   animation:slideDown 0.8s cubic-bezier(.17,.67,.35,1) both;
@@ -577,9 +576,11 @@ html {scroll-behavior:smooth;}
   position:relative;min-height:100vh;
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
-  background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,168,67,0.06) 0%, transparent 70%),
-             radial-gradient(ellipse 60% 80% at 90% 50%, rgba(74,158,255,0.04) 0%, transparent 60%),
-             var(--lp-deep);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%,  rgba(212,168,67,0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 70% at 90% 50%, rgba(200,64,42,0.09)  0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(212,168,67,0.05) 0%, transparent 50%),
+    var(--lp-deep);
 }
 
 /* Orbital SVG background */
@@ -697,14 +698,14 @@ html {scroll-behavior:smooth;}
   animation:fadeUp 1s 1.4s both;
 }
 #lp .scroll-hint-line {
-  width:1px;height:40px;background:linear-gradient(var(--lp-gold),transparent);
+  width:1px;height:40px;background:linear-gradient(var(--lp-ember),var(--lp-gold),transparent);
   animation:scrollLine 2s infinite;
 }
 @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 /* ── STATS BAR ── */
 #lp .stats-bar {
-  background:var(--lp-surface);
+  background:linear-gradient(135deg,var(--lp-surface) 0%,#1a080e 100%);
   border-top:1px solid var(--lp-border);border-bottom:1px solid var(--lp-border);
   padding:32px 48px;
   display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -773,7 +774,7 @@ html {scroll-behavior:smooth;}
   opacity:0;transition:opacity 0.4s;pointer-events:none;
 }
 #lp .feature-card:hover::before {opacity:1;}
-#lp .feature-card:hover {background:#1c2130;}
+#lp .feature-card:hover {background:#1e0c12;}
 #lp .feature-icon {
   width:48px;height:48px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;
@@ -803,7 +804,7 @@ html {scroll-behavior:smooth;}
 #lp .why-section::before {
   content:'';position:absolute;top:-200px;right:-200px;
   width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle, rgba(212,168,67,0.05) 0%, transparent 70%);
+  background:radial-gradient(circle, rgba(200,64,42,0.06) 0%, rgba(212,168,67,0.04) 40%, transparent 70%);
   pointer-events:none;
 }
 #lp .why-layout {
@@ -840,7 +841,7 @@ html {scroll-behavior:smooth;}
   box-shadow:0 40px 100px rgba(0,0,0,0.5);
 }
 #lp .why-visual-header {
-  background:var(--lp-deep);padding:14px 20px;
+  background:linear-gradient(90deg,var(--lp-deep),#170810);padding:14px 20px;
   display:flex;align-items:center;gap:8px;
   border-bottom:1px solid var(--lp-border);
 }
@@ -886,8 +887,8 @@ html {scroll-behavior:smooth;}
   transition:all 0.3s;cursor:default;
 }
 #lp .aps-card:hover {
-  border-color:rgba(212,168,67,0.3);transform:translateY(-6px);
-  background:#1c2130;box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  border-color:rgba(200,64,42,0.45);transform:translateY(-6px);
+  background:#1e0c12;box-shadow:0 20px 60px rgba(0,0,0,0.4);
 }
 #lp .aps-emoji {font-size:36px;margin-bottom:12px;display:block;}
 #lp .aps-name {font-weight:800;font-size:14px;margin-bottom:4px;}
@@ -904,7 +905,7 @@ html {scroll-behavior:smooth;}
   padding:32px 28px;position:relative;
   transition:transform 0.3s,border-color 0.3s;cursor:default;
 }
-#lp .testimonial-card:hover {transform:translateY(-4px);border-color:rgba(212,168,67,0.2);}
+#lp .testimonial-card:hover {transform:translateY(-4px);border-color:rgba(200,64,42,0.35);}
 #lp .testimonial-card::before {
   content:'❝';position:absolute;top:20px;right:24px;
   font-size:48px;color:rgba(212,168,67,0.08);font-family:'Fraunces',serif;line-height:1;
@@ -930,12 +931,12 @@ html {scroll-behavior:smooth;}
 #lp .cta-section::before {
   content:'';position:absolute;top:50%;left:50%;
   width:800px;height:400px;border-radius:50%;
-  background:radial-gradient(ellipse, rgba(212,168,67,0.08) 0%, transparent 70%);
+  background:radial-gradient(ellipse, rgba(212,168,67,0.07) 0%, rgba(200,64,42,0.05) 40%, transparent 70%);
   transform:translate(-50%,-50%);pointer-events:none;
 }
 #lp .cta-section::after {
   content:'';position:absolute;top:0;left:0;right:0;
-  height:1px;background:linear-gradient(90deg,transparent,var(--lp-gold),transparent);
+  height:1px;background:linear-gradient(90deg,transparent,var(--lp-ember) 20%,var(--lp-gold) 50%,var(--lp-ember) 80%,transparent);
 }
 #lp .cta-section .section-title {font-size:clamp(36px,5vw,60px);margin-bottom:20px;}
 #lp .cta-section .section-sub {margin:0 auto 48px;font-size:17px;}
@@ -993,13 +994,13 @@ html {scroll-behavior:smooth;}
   animation:rotate linear infinite;
 }
 #lp .orb-1 {width:300px;height:300px;border-color:rgba(212,168,67,0.06);animation-duration:20s;}
-#lp .orb-2 {width:500px;height:500px;border-color:rgba(74,158,255,0.04);animation-duration:35s;animation-direction:reverse;}
+#lp .orb-2 {width:500px;height:500px;border-color:rgba(200,64,42,0.07);animation-duration:35s;animation-direction:reverse;}
 #lp .orb-3 {width:700px;height:700px;border-color:rgba(212,168,67,0.03);animation-duration:50s;}
 #lp .orb-dot {
   position:absolute;width:6px;height:6px;border-radius:50%;
   background:var(--lp-gold);top:0;left:50%;margin-left:-3px;margin-top:-3px;
 }
-#lp .orb-2 .orb-dot {background:var(--lp-sky);width:4px;height:4px;margin-left:-2px;margin-top:-2px;}
+#lp .orb-2 .orb-dot {background:var(--lp-ember);width:4px;height:4px;margin-left:-2px;margin-top:-2px;}
 #lp .orb-3 .orb-dot {background:var(--lp-ember);width:3px;height:3px;display:none;}
 @keyframes rotate{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 
@@ -1256,7 +1257,7 @@ html {scroll-behavior:smooth;}
             </div>
             <div class="mini-bar-row">
               <span class="mini-bar-label">Régularité</span>
-              <div class="mini-bar-bg"><div class="mini-bar-fill" style="width:0%;background:var(--lp-sky);" data-w="65"></div></div>
+              <div class="mini-bar-bg"><div class="mini-bar-fill" style="width:0%;background:var(--lp-ember);" data-w="65"></div></div>
               <span class="mini-bar-val">65%</span>
             </div>
             <div class="mini-bar-row">
@@ -1314,7 +1315,7 @@ html {scroll-behavior:smooth;}
         <div class="test-stars">★★★★★</div>
         <p class="test-text">« Les conduites typiques par niveau m'aident à différencier vraiment mon enseignement. Je vois enfin mes élèves évoluer de manière structurée et cohérente. »</p>
         <div class="test-author">
-          <div class="test-avatar" style="background:linear-gradient(135deg,var(--lp-sky),var(--lp-green));">NB</div>
+          <div class="test-avatar" style="background:linear-gradient(135deg,var(--lp-ember),var(--lp-gold));">NB</div>
           <div>
             <div class="test-name">Nadia Benali</div>
             <div class="test-role">Prof EPS · Lycée Al Khawarizmi, Casablanca</div>
@@ -1487,8 +1488,10 @@ if (track) {
 // ── SMOOTH SCROLL for anchor links ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
     e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
+    const target = document.querySelector(href);
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 });
@@ -2874,23 +2877,134 @@ function planSwitchAps(id, btn) {
 // ============================================================
 
 // --- Base de données pédagogique par niveau ---
+// ============================================================
+//  BASE DE CONNAISSANCES — OP 2009 MAROC
+//  Référentiel officiel des Orientations Pédagogiques
+// ============================================================
+
+const OP2009 = {
+
+  // ── OTI par niveau ──────────────────────────────────────
+  OTI: {
+    '1AC':  { label: '1ère Année Collège', court: '1AC',
+      oti: "Acquérir une motricité correcte permettant de s'adapter aux exigences des situations et de s'intégrer dans le groupe.",
+      focus: "Découverte · Bases techniques · Intégration au groupe",
+      vmaBase: 65, vmaMax: 72 },
+    '2AC':  { label: '2ème Année Collège', court: '2AC',
+      oti: "Ajuster l'énergie physique, maîtriser l'effort et l'orienter vers des réalisations coordonnées.",
+      focus: "Consolidation · Dosage de l'effort · Coopération",
+      vmaBase: 68, vmaMax: 76 },
+    '3AC':  { label: '3ème Année Collège', court: '3AC',
+      oti: "Ajuster les éléments de l'acte moteur en fonction des exigences organisationnelles et réglementaires.",
+      focus: "Autonomie · Tactique · Arbitrage · Rôles sociaux",
+      vmaBase: 72, vmaMax: 80 },
+    'TC':   { label: 'Tronc Commun', court: 'TC',
+      oti: "Mobiliser ses ressources physiques et méthodologiques pour réaliser une performance en endurance selon un projet de course établi.",
+      focus: "Consolidation lycée · Projet de course · Auto-évaluation",
+      vmaBase: 75, vmaMax: 82 },
+    '1BAC': { label: '1ère Bac', court: '1BAC',
+      oti: "Développer l'endurance spécifique et optimiser la gestion de l'effort en relation avec les barèmes officiels.",
+      focus: "Endurance spécifique · Analyse sérielle · Progression VMA",
+      vmaBase: 78, vmaMax: 85 },
+    '2BAC': { label: '2ème Bac', court: '2BAC',
+      oti: "Optimiser la performance personnelle et développer l'autonomie dans la gestion du cycle d'entraînement.",
+      focus: "Performance · Autonomie · Carnet d'entraînement · Tutorat",
+      vmaBase: 80, vmaMax: 90 }
+  },
+
+  // ── Compétences de Vie (Savoir-être) OP 2009 ───────────
+  COMPETENCES_VIE: [
+    { code: 'CV1', titre: 'Gestion de soi et Autonomie',
+      desc: "Assurer son propre échauffement · Gérer son effort en autonomie · Respecter les consignes de sécurité." },
+    { code: 'CV2', titre: 'Coopération et Travail d\'équipe',
+      desc: "Construire un projet de groupe · Pratiquer l'entraide · S'engager dans des rôles collectifs." },
+    { code: 'CV3', titre: 'Respect d\'autrui et Fair-play',
+      desc: "Accepter les décisions de l'arbitre · Pratiquer sans violence · Respecter les règles et les adversaires." },
+    { code: 'CV4', titre: 'Prise de responsabilité / Citoyenneté',
+      desc: "Assumer le rôle d'arbitre, de chronométreur ou d'observateur · Prendre des initiatives responsables." }
+  ],
+
+  // ── Structure du Projet de Cycle OP 2009 ───────────────
+  STRUCTURE_CYCLE: {
+    s1:  { seq: 0,    tag: 'diag', label: 'Évaluation Diagnostique',
+           couleur: '#0891b2', phase: '🔵 S1 — Diagnostic',
+           role_op: "Séance 1 — Évaluation diagnostique obligatoire (OP 2009)" },
+    seq1: { seq: 1,   tag: 'seq1', label: 'Séq. 1 — Fondamentaux',
+           couleur: '#1d4ed8', phase: '🟡 Séq.1 — Fondamentaux (S2→S4)',
+           role_op: "Prise de contact et Maîtrise des fondamentaux · S2 à S4" },
+    seq2: { seq: 2,   tag: 'seq2', label: 'Séq. 2 — Choix tactiques',
+           couleur: '#7c3aed', phase: '🟠 Séq.2 — Continuité & Tactique (S5→S7)',
+           role_op: "Continuité de l'action et Choix tactiques · S5 à S7" },
+    seq3: { seq: 3,   tag: 'seq3', label: 'Séq. 3 — Autonomie',
+           couleur: '#b45309', phase: '🟤 Séq.3 — Autonomie & Arbitrage (S8→S9)',
+           role_op: "Autonomie, Régulation et Arbitrage · S8 et S9" },
+    s10: { seq: 4,    tag: 'eval', label: 'Évaluation Sommative',
+           couleur: '#059669', phase: '🟢 S10 — Évaluation Sommative',
+           role_op: "Séance 10 — Évaluation sommative obligatoire (OP 2009)" }
+  }
+};
+
+// ============================================================
+//  PLAN_DATA — Données pédagogiques complètes par niveau
+// ============================================================
 const PLAN_DATA = {
+
+  // ── Profil COLLÈGE ──
   college: {
-    niveaux: ['1ASC','2ASC','3ASC'],
-    pill: 'college',
-    pillLabel: 'Collège OP 2009',
-    competences: [
-      { titre: 'Compétence Transversale 1', texte: "Développer la santé et l'endurance cardio-respiratoire par une pratique régulière et raisonnée de la course de durée." },
-      { titre: 'Compétence Transversale 2', texte: "Construire et gérer un projet de course en utilisant les outils de mesure et d'auto-évaluation adaptés à son niveau." },
-      { titre: 'Compétence Sociale', texte: "Assumer des rôles variés (coureur, observateur, chronométreur) et coopérer dans le groupe-classe." }
-    ],
-    objectifs: [
-      { gen: "Développer l'endurance aérobie", spec: "Courir à 70–80 % de la VMA · Maintenir l'allure sur 6 à 12 min", indicateur: "Écart ≤ 15 sec par tour · Finit Total (FT)" },
-      { gen: "Construire un projet de course", spec: "Choisir et tenir une cible VMA · Formuler un projet avant la course", indicateur: "Cible annoncée = cible réalisée" },
-      { gen: "S'auto-évaluer", spec: "Calculer ses écarts · Analyser sa fiche de résultats", indicateur: "Fiche correctement remplie et commentée" },
-      { gen: "Coopérer", spec: "Assumer les rôles sociaux · Encourager les partenaires", indicateur: "Rôles assurés avec précision sur 3 séances" }
-    ],
-    vmaBase: 70, vmaMax: 80,
+    niveaux: ['1AC','2AC','3AC'],
+    pill: 'college', pillLabel: 'Collège · OP 2009',
+
+    // Compétences selon le niveau (générées dynamiquement dans genererCycle)
+    getCompetences: function(niv) {
+      const oti = OP2009.OTI[niv] || OP2009.OTI['1AC'];
+      return [
+        { titre: 'OTI — ' + oti.label,
+          texte: oti.oti },
+        { titre: 'Compétence Motrice',
+          texte: niv === '1AC'
+            ? "Courir à allure régulière sur une distance adaptée à sa VMA · Maîtriser les bases techniques de la course de durée."
+            : niv === '2AC'
+            ? "Doser et réguler son effort tout au long de la course · Construire et tenir un projet de course cohérent avec sa VMA."
+            : "Ajuster son allure en fonction des exigences réglementaires · Gérer de façon autonome son effort et son projet de course." },
+        { titre: 'CV1 — ' + OP2009.COMPETENCES_VIE[0].titre,
+          texte: OP2009.COMPETENCES_VIE[0].desc },
+        { titre: 'CV4 — ' + OP2009.COMPETENCES_VIE[3].titre,
+          texte: OP2009.COMPETENCES_VIE[3].desc }
+      ];
+    },
+
+    // Objectifs différenciés par niveau
+    getObjectifs: function(niv) {
+      const base = [
+        { gen: "Développer l'endurance aérobie",
+          spec: niv === '1AC' ? "Courir à 65–70 % VMA · Maintenir l'effort 6 à 8 min sans s'arrêter"
+              : niv === '2AC' ? "Courir à 68–75 % VMA · Maîtriser l'effort sur 8 à 10 min"
+              : "Courir à 72–80 % VMA · Gérer son allure sur 10 à 12 min de façon autonome",
+          indicateur: niv === '1AC' ? "Finit sans s'arrêter · Écart ≤ 20 sec/tour"
+                    : niv === '2AC' ? "Finit Total (FT) · Écart ≤ 15 sec/tour"
+                    : "Finit Total (FT) · Écart ≤ 10 sec/tour" },
+        { gen: "Construire un projet de course",
+          spec: niv === '1AC' ? "Formuler un objectif simple · Choisir sa cible FT/FP"
+              : niv === '2AC' ? "Formuler et tenir un projet complet · Choisir une cible VMA réaliste"
+              : "Formuler un projet tactique détaillé · Analyser et réajuster son projet",
+          indicateur: "Cible annoncée = cible réalisée" },
+        { gen: niv === '3AC' ? "Arbitrer et réguler" : "Coopérer",
+          spec: niv === '1AC' ? "Jouer le rôle de chronométreur · Encourager les partenaires"
+              : niv === '2AC' ? "Assurer les rôles d'observateur et de chronométreur avec précision"
+              : "Maîtriser le rôle d'arbitre · Animer un groupe en autonomie",
+          indicateur: niv === '3AC' ? "Arbitrage correct sur 2 séances · Feedback constructif"
+                    : "Rôles assurés avec précision sur 3 séances" },
+        { gen: "S'auto-évaluer",
+          spec: "Calculer ses écarts tour par tour · Analyser sa fiche de résultats · Fixer son prochain objectif",
+          indicateur: "Fiche correctement remplie et commentée · Objectif formulé" }
+      ];
+      return base;
+    },
+
+    getVMA: function(niv) {
+      return OP2009.OTI[niv] || { vmaBase: 70, vmaMax: 78 };
+    },
+
     indicateurs: [
       { label: "% élèves Finit Total (FT)", cible: 70, color: 'var(--green)' },
       { label: "Régularité (Σ écarts ≤ 15 sec)", cible: 65, color: 'var(--accent2)' },
@@ -2898,22 +3012,54 @@ const PLAN_DATA = {
       { label: "Taux de réussite ≥ 10/20", cible: 80, color: '#6366f1' }
     ]
   },
+
+  // ── Profil LYCÉE ──
   lycee: {
     niveaux: ['TC','1BAC','2BAC'],
-    pill: 'lycee',
-    pillLabel: 'Lycée OP 2009',
-    competences: [
-      { titre: 'Compétence Disciplinaire 1', texte: "Mobiliser ses ressources physiques et méthodologiques pour réaliser une performance en course de durée en accord avec un projet de course établi." },
-      { titre: 'Compétence Transversale', texte: "Développer l'esprit d'analyse, d'auto-évaluation et d'autonomie dans la gestion d'un effort prolongé." },
-      { titre: 'Compétence Sociale', texte: "Assumer le rôle de tuteur, leader d'allure et co-évaluateur dans le groupe-classe." }
-    ],
-    objectifs: [
-      { gen: "Développer l'endurance spécifique", spec: "VMA 80–85 % · Gestion de la fatigue · Analyse sérielle", indicateur: "Progression +0.5 VMA · Σ écarts ≤ 8 sec" },
-      { gen: "Construire un projet de course optimisé", spec: "Negative split · Projet formulé et tenu sur cycle complet", indicateur: "Cible tenue sur 100 % des séances" },
-      { gen: "Gérer un carnet d'entraînement", spec: "Analyser sa progression pluriséance · Fixer ses objectifs", indicateur: "Carnet tenu sur tout le cycle" },
-      { gen: "Assumer le rôle de tuteur", spec: "Conseiller un partenaire · Co-animer une séquence", indicateur: "Retour qualitatif précis documenté" }
-    ],
-    vmaBase: 80, vmaMax: 90,
+    pill: 'lycee', pillLabel: 'Lycée · OP 2009',
+
+    getCompetences: function(niv) {
+      const oti = OP2009.OTI[niv] || OP2009.OTI['TC'];
+      return [
+        { titre: 'OTI — ' + oti.label, texte: oti.oti },
+        { titre: 'Compétence Disciplinaire',
+          texte: niv === 'TC'
+            ? "Mobiliser ses ressources physiques pour réaliser une performance en course de durée selon un projet de course établi."
+            : niv === '1BAC'
+            ? "Optimiser ses ressources énergétiques · Analyser sa progression sur plusieurs séances pour ajuster son projet."
+            : "Concevoir et gérer un cycle personnel d'entraînement · Accompagner un pair dans la construction de son projet." },
+        { titre: 'CV1 — ' + OP2009.COMPETENCES_VIE[0].titre,
+          texte: OP2009.COMPETENCES_VIE[0].desc },
+        { titre: 'CV2 — ' + OP2009.COMPETENCES_VIE[1].titre,
+          texte: OP2009.COMPETENCES_VIE[1].desc }
+      ];
+    },
+
+    getObjectifs: function(niv) {
+      return [
+        { gen: "Développer l'endurance spécifique",
+          spec: niv === 'TC'  ? "VMA 75–80 % · Gestion de la fatigue · Régularité"
+              : niv === '1BAC'? "VMA 78–85 % · Analyse sérielle · Progression +0.5 VMA"
+              : "VMA 80–90 % · Optimisation · Carnet d'entraînement tenu",
+          indicateur: niv === 'TC'  ? "Écart ≤ 12 sec · FT atteint"
+                    : niv === '1BAC'? "Progression +0.5 VMA · Σ écarts ≤ 8 sec"
+                    : "Note ≥ 16/20 · Carnet complet" },
+        { gen: "Construire un projet optimisé",
+          spec: "Negative split · Projet formulé et tenu sur cycle complet · Réajustement séance par séance",
+          indicateur: "Cible tenue sur 100 % des séances" },
+        { gen: "Gérer un carnet d'entraînement",
+          spec: "Analyser sa progression pluriséance · Comparer VMA initiale et finale · Fixer ses objectifs",
+          indicateur: "Carnet tenu sur tout le cycle · Progression documentée" },
+        { gen: "Assumer le rôle de tuteur",
+          spec: "Conseiller un partenaire · Co-animer une séquence · Feedback qualitatif précis",
+          indicateur: "Retour qualitatif documenté sur 2 séances" }
+      ];
+    },
+
+    getVMA: function(niv) {
+      return OP2009.OTI[niv] || { vmaBase: 78, vmaMax: 85 };
+    },
+
     indicateurs: [
       { label: "% élèves VMA ≥ 80 %", cible: 60, color: 'var(--green)' },
       { label: "Σ écarts ≤ 8 sec", cible: 55, color: 'var(--accent2)' },
@@ -2923,361 +3069,421 @@ const PLAN_DATA = {
   }
 };
 
-// Bibliothèque de séances (pool riche non répétitif)
+// ============================================================
+//  SEANCE_POOL — Bibliothèque OP 2009 (3 séquences + diag/eval)
+// ============================================================
 const SEANCE_POOL = {
+
+  // ── S1 : Évaluation Diagnostique (obligatoire OP 2009) ──
   diag: [
-    {
-      titre: "Évaluation diagnostique — Test VMA",
-      tag: "diag", couleur: "#0891b2", phase: "🔵 Diagnostic",
-      objectif: "Déterminer le niveau initial de chaque élève · Constituer les groupes",
-      contenu: "Test navette de Léger-Boucher (demi-paliers) · Relevé de la VMA · Classement A/B/C",
-      organisation: "Classe entière · Chronométrage collectif",
-      eval: "Fiche individuelle VMA · Tableau de classement par groupe",
-      diff: "Arrêt possible dès saturation · Aucune contrainte de résultat"
-    },
-    {
-      titre: "Bilan initial — Connaissance de soi",
-      tag: "diag", couleur: "#0891b2", phase: "🔵 Diagnostic",
-      objectif: "Identifier ses ressources · Formuler un premier projet de course",
-      contenu: "Course libre 6 min chrono · Auto-évaluation perçue vs réelle · Introduction de la fiche de suivi",
-      organisation: "Individuel puis mise en commun",
-      eval: "Comparaison effort perçu / VMA estimée",
-      diff: "Pas de cible imposée · Exploration libre de l'allure"
-    }
+    { titre: "Évaluation diagnostique — Test VMA",
+      tag: "diag", couleur: "#0891b2", phase: "🔵 S1 — Diagnostic",
+      seq_op: "Séance 1 obligatoire · OP 2009",
+      objectif: "Déterminer le niveau initial · Constituer les groupes A/B/C",
+      comp_vie: "CV4 — Prise de responsabilité : rôle de chronométreur",
+      contenu: "Test navette Léger-Boucher (demi-paliers) · Relevé VMA individuel · Classement A/B/C · Introduction de la fiche de suivi",
+      organisation: "Classe entière · Chronométrage collectif · Fiche individuelle",
+      eval: "VMA relevée · Classement A/B/C · Fiche de profil complétée",
+      diff: "Arrêt dès saturation · Aucune contrainte de résultat · Groupes constitués après la séance" }
   ],
-  acq: [
-    {
-      titre: "Découverte de la régularité — Bip sonore",
-      tag: "acq", couleur: "#1d4ed8", phase: "🟡 Acquisition",
-      objectif: "Courir à allure régulière avec repère sonore · VMA 65–70 %",
-      contenu: "Course avec bip sonore toutes les 30 sec · 4–6 tours · Rôle chronométreur / observateur en binôme",
-      organisation: "Binômes (1 court / 1 observe) · Rotation à mi-séance",
-      eval: "Calcul Σ écarts par tour · Objectif : rester < 20 sec",
-      diff: "Niv.C : 3 tours · Niv.B : 5 tours · Niv.A : 6 tours + auto-ajustement"
-    },
-    {
-      titre: "Construction du projet de course",
-      tag: "acq", couleur: "#1d4ed8", phase: "🟡 Acquisition",
-      objectif: "Formuler un projet avant la course · Choisir une cible VMA cohérente",
-      contenu: "Formulation écrite du projet (allure cible, nb tours, cible FT/FP) · Course · Confrontation projet/réel",
+
+  // ── Séquence 1 (S2–S4) : Fondamentaux ──────────────────
+  seq1: [
+    { titre: "S2 — Découverte de la régularité (bip sonore)",
+      tag: "seq1", couleur: "#1d4ed8", phase: "🟡 Séq.1 — Fondamentaux",
+      seq_op: "Séquence 1 · S2 — Prise de contact et maîtrise des fondamentaux",
+      objectif: "Découvrir la notion de régularité · Courir à allure constante avec aide sonore",
+      comp_vie: "CV1 — Gestion de soi : écouter les signaux corporels · CV4 : rôle d'observateur",
+      contenu: "Course avec bip sonore toutes les 30 sec · 4 à 6 tours · Fiche de relevé des temps de tour · Rôle chronométreur/observateur en binôme",
+      organisation: "Binômes (1 court / 1 observe) · Rotation à mi-séance · Constitution des groupes homogènes",
+      eval: "Σ écarts par tour · Objectif débutant : Σ ≤ 20 sec",
+      diff: "Niv.C : 3 tours · Niv.B : 5 tours · Niv.A : 6 tours + estimation sans bip" },
+
+    { titre: "S3 — Règles fondamentales et technique de course",
+      tag: "seq1", couleur: "#1d4ed8", phase: "🟡 Séq.1 — Fondamentaux",
+      seq_op: "Séquence 1 · S3 — Maîtrise des fondamentaux : technique et règles",
+      objectif: "Maîtriser la technique de base de la course · Comprendre les règles fondamentales",
+      comp_vie: "CV3 — Fair-play : respect du parcours et des règles · CV1 : posture et respiration",
+      contenu: "Ateliers techniques : foulée, appui, relâchement (15 min) · Course appliquée VMA 65–68 % · Présentation des règles officielles (couloirs, tours, temps)",
+      organisation: "Ateliers individuels puis en groupe · Observation collective des postures",
+      eval: "Qualité de la foulée observée · Respect des règles du circuit",
+      diff: "Niv.C : focus sur la respiration · Niv.A : corrections de la foulée + efficacité" },
+
+    { titre: "S4 — Construction du premier projet de course",
+      tag: "seq1", couleur: "#1d4ed8", phase: "🟡 Séq.1 — Fondamentaux",
+      seq_op: "Séquence 1 · S4 — Intégration : formuler un projet de course",
+      objectif: "Formuler un premier projet de course · Choisir sa cible VMA en lien avec son profil",
+      comp_vie: "CV1 — Autonomie : choisir sa cible · CV4 : formulation écrite du projet",
+      contenu: "Formulation écrite du projet (allure cible, nb tours, statut FT/FP/AB) · Course · Confrontation projet annoncé / résultat réel",
       organisation: "Individuel → Binôme pour analyse post-course",
-      eval: "Grille projet : cible annoncée vs réalisée",
-      diff: "Niv.C : choix cible guidé · Niv.A : cible autonome + commentaire tactique"
-    },
-    {
-      titre: "Travail foncier — Endurance de base",
-      tag: "acq", couleur: "#1d4ed8", phase: "🟡 Acquisition",
-      objectif: "Courir en continu 8–10 min · Développer la résistance aérobie",
-      contenu: "Course continue à VMA 70 % · Fiche de suivi tour par tour · Pas de bip : estimation interne",
-      organisation: "Groupes homogènes de VMA · Autonomie dans la gestion",
-      eval: "Nb tours réalisés · Σ écarts (cible ≤ 15 sec)",
-      diff: "Niv.C : 6 min · Niv.B : 8 min · Niv.A : 10 min avec relance finale"
-    },
-    {
-      titre: "Situations d'allure — Leaders de groupe",
-      tag: "acq", couleur: "#1d4ed8", phase: "🟡 Acquisition",
-      objectif: "Utiliser un leader d'allure pour maintenir le rythme · VMA 72–75 %",
-      contenu: "Coureur Niv.A joue le rôle de meneur · Groupes de 3–4 · Course 8 min · Discussion post-effort",
-      organisation: "Groupes mixtes dirigés par un leader désigné",
-      eval: "Cohésion du groupe · Σ écarts du meneur",
-      diff: "Leader tourne à chaque tour · Retour sur le ressenti"
-    },
-    {
-      titre: "Séance miroir — Observation et analyse",
-      tag: "acq", couleur: "#1d4ed8", phase: "🟡 Acquisition",
-      objectif: "Développer le regard critique · Rôle d'observateur actif",
-      contenu: "Moitié de la classe court · L'autre moitié observe avec grille critériée (posture, allure, régularité) · Alternance",
-      organisation: "Binômes observateur/coureur · Retour verbal structuré",
-      eval: "Qualité de l'observation · Pertinence des retours",
-      diff: "Grille d'observation simplifiée (3 critères) pour Niv.C · Grille complète pour Niv.A"
-    },
-    {
-      titre: "Jeu de rôles — Chronométreur officiel",
-      tag: "acq", couleur: "#1d4ed8", phase: "🟡 Acquisition",
-      objectif: "Maîtriser le rôle de chronométreur · Précision et coopération",
-      contenu: "Groupe de 3 : 1 court / 1 chrono / 1 notateur · Relève tour par tour · Calcul collectif des écarts",
-      organisation: "Trinômes en rotation sur 3 séries",
-      eval: "Précision du relevé · Calcul correct des Σ écarts",
-      diff: "Chronométrage simplifié pour Niv.C (total seulement)"
-    }
+      eval: "Grille projet : cible annoncée vs réalisée · Cohérence VMA/cible",
+      diff: "Niv.C : choix guidé par l'enseignant · Niv.B : choix semi-autonome · Niv.A : cible + commentaire tactique" }
   ],
-  renf: [
-    {
-      titre: "Consolidation — Régulation tour par tour",
-      tag: "renf", couleur: "#7c3aed", phase: "🟠 Renforcement",
-      objectif: "Ajuster l'allure en temps réel · Réduire les écarts · VMA 75–78 %",
-      contenu: "Course avec feedback immédiat du chrono (signal si écart > 10 sec) · Fiche de bilan enrichie",
-      organisation: "Groupes de 3 · Feedback sonore ou verbal",
-      eval: "Σ écarts cible : ≤ 12 sec · Nb tours FT",
-      diff: "Niv.C : signal si > 15 sec · Niv.A : signal si > 8 sec"
-    },
-    {
-      titre: "Séance progression — +0.5 VMA",
-      tag: "renf", couleur: "#7c3aed", phase: "🟠 Renforcement",
-      objectif: "Tenter une allure légèrement supérieure · VMA + 0.5 km/h",
-      contenu: "Course à allure majorée de 0.5 VMA · Analyse de la tenue de l'effort · Comparaison avec séance précédente",
-      organisation: "Individuel · Lecture carnet ou fiche antérieure obligatoire",
-      eval: "Tenue de la nouvelle allure · FT ou FP documenté",
-      diff: "Retour à VMA de base si FP sur plus de 2 tours consécutifs"
-    },
-    {
-      titre: "Situation de dépassement",
-      tag: "renf", couleur: "#7c3aed", phase: "🟠 Renforcement",
-      objectif: "Apprendre à résister à la tentation de s'arrêter · Mental de course",
-      contenu: "Course avec obstacle cognitif (compter les tours, répondre à une question entre les tours) · VMA 75 %",
-      organisation: "Individuel · Retour collectif sur les stratégies mentales utilisées",
-      eval: "FT atteint · Stratégie décrite en post-course",
-      diff: "Durée réduite pour Niv.C · Défi supplémentaire pour Niv.A (sprint final 30 m)"
-    },
-    {
-      titre: "Feedback pair-pair — Analyse collective",
-      tag: "renf", couleur: "#7c3aed", phase: "🟠 Renforcement",
-      objectif: "Donner et recevoir un retour constructif · Consolider la coopération",
-      contenu: "Présentation des fiches de la séance précédente en binôme · Identification de 2 points forts et 1 axe d'amélioration · Formulation d'objectif commun",
-      organisation: "Binômes stables depuis la séance 3",
-      eval: "Qualité du feedback (grille 3 critères)",
-      diff: "Modèle de retour fourni pour Niv.C · Libre pour Niv.A"
-    },
-    {
-      titre: "Séance mixte — Course + atelier technique",
-      tag: "renf", couleur: "#7c3aed", phase: "🟠 Renforcement",
-      objectif: "Combiner endurance et technique de course · Améliorer l'économie de foulée",
-      contenu: "15 min course · Atelier : foulée, appui, relâchement (10 min) · Reprise course 10 min · Bilan 5 min",
-      organisation: "Alternance grand groupe / ateliers individuels",
-      eval: "Avant/après : perception de l'effort sur même distance",
-      diff: "Atelier simplifié pour Niv.C (posture uniquement)"
-    },
-    {
-      titre: "Course en relais pédagogique",
-      tag: "renf", couleur: "#7c3aed", phase: "🟠 Renforcement",
-      objectif: "Maintenir l'allure en situation ludique · Coopération renforcée",
-      contenu: "Équipes de 4 : chaque coureur fait 2 tours à VMA cible · Le suivant part dès retour · Total équipe = 8 tours",
-      organisation: "Équipes de niveau homogène",
-      eval: "Régularité de chaque coureur dans l'équipe · Score collectif",
-      diff: "Niv.C : 1 tour par coureur · Niv.A : 3 tours + bilan tactique"
-    },
-    {
-      titre: "Analyse pluriséance — Bilan de mi-cycle",
-      tag: "renf", couleur: "#7c3aed", phase: "🟠 Renforcement",
-      objectif: "Identifier sa progression · Réajuster les objectifs pour la 2ème partie du cycle",
-      contenu: "Comparaison des fiches S1 à Sx · Courbe de progression individuelle · Formulation de l'objectif final",
-      organisation: "Individuel puis échange en binôme · Présentation voluntaire en grand groupe",
-      eval: "Fiche bilan mi-cycle complétée · Objectif formulé",
-      diff: "Tableau de comparaison guidé pour Niv.C · Construction autonome pour Niv.A"
-    }
+
+  // ── Séquence 2 (S5–S7) : Continuité & Tactique ─────────
+  seq2: [
+    { titre: "S5 — Continuité de l'effort et dosage",
+      tag: "seq2", couleur: "#7c3aed", phase: "🟠 Séq.2 — Continuité & Tactique",
+      seq_op: "Séquence 2 · S5 — Continuité de l'action et choix tactiques",
+      objectif: "Maintenir l'effort en continu · Doser l'énergie sur la durée totale de la course",
+      comp_vie: "CV1 — Gestion de l'effort : écouter les sensations internes · CV2 : coopération en groupe homogène",
+      contenu: "Course continue VMA 70–75 % · Estimation interne sans bip · Fiche de suivi tour/tour · Groupes homogènes par VMA · Debriefing collectif sur les stratégies",
+      organisation: "Groupes homogènes de niveau · Autonomie dans la gestion de l'allure",
+      eval: "Nb tours réalisés · Σ écarts (cible ≤ 15 sec) · Taux de FT dans le groupe",
+      diff: "Niv.C : 6 min avec bip · Niv.B : 8 min sans bip · Niv.A : 10 min + relance finale" },
+
+    { titre: "S6 — Surnombre et leaders d'allure (tactique collective)",
+      tag: "seq2", couleur: "#7c3aed", phase: "🟠 Séq.2 — Continuité & Tactique",
+      seq_op: "Séquence 2 · S6 — Choix tactiques : surnombre et démarquage",
+      objectif: "Utiliser un leader d'allure pour maintenir le rythme collectif · VMA 72–75 %",
+      comp_vie: "CV2 — Coopération : s'appuyer sur le groupe · CV3 : respect du rôle de meneur",
+      contenu: "Élève Niv.A joue le rôle de meneur · Groupes de 3–4 · Course 8 min · Le groupe doit rester cohésif · Discussion post-effort sur les ressentis",
+      organisation: "Groupes mixtes dirigés par un leader désigné · Rotation du rôle de meneur",
+      eval: "Cohésion du groupe · Σ écarts du meneur · Qualité du leadership",
+      diff: "Leader Niv.A : allure calibrée pour le groupe · Niv.C : suit le leader sans obligation de résultat" },
+
+    { titre: "S7 — Enchaînements d'actions et régulation",
+      tag: "seq2", couleur: "#7c3aed", phase: "🟠 Séq.2 — Continuité & Tactique",
+      seq_op: "Séquence 2 · S7 — Enchaînements d'actions et choix tactiques",
+      objectif: "Enchaîner les tours sans rupture d'allure · Ajuster l'effort en temps réel",
+      comp_vie: "CV1 — Autorégulation : signal interne · CV4 : rôle de chronométreur officiel",
+      contenu: "Course VMA 75–78 % · Feedback immédiat du binôme (signal si écart > 10 sec) · Fiche de bilan enrichie · Comparaison avec séances précédentes",
+      organisation: "Trinômes : 1 court / 1 chrono / 1 notateur · Rotation toutes les 2 séries",
+      eval: "Σ écarts cible ≤ 12 sec · Nb tours FT · Progression vs S5",
+      diff: "Niv.C : signal si > 15 sec · Niv.B : signal si > 12 sec · Niv.A : signal si > 8 sec" }
   ],
+
+  // ── Séquence 3 (S8–S9) : Autonomie & Arbitrage ─────────
+  seq3: [
+    { titre: "S8 — Autonomie et stratégie personnelle",
+      tag: "seq3", couleur: "#b45309", phase: "🟤 Séq.3 — Autonomie & Arbitrage",
+      seq_op: "Séquence 3 · S8 — Autonomie et régulation stratégique",
+      objectif: "Gérer sa course de façon totalement autonome · Construire une stratégie personnelle",
+      comp_vie: "CV1 — Autonomie totale : pas de bip, pas d'aide · CV4 : responsabilité du projet",
+      contenu: "Course autonome VMA cible (+0.5 sur S7) · Aucun bip sonore · Fiche de stratégie pré-course · Analyse individuelle post-course · Formulation du projet pour S10",
+      organisation: "Individuel · L'enseignant n'intervient pas pendant la course",
+      eval: "Cohérence stratégie annoncée / résultat réel · Auto-évaluation argumentée",
+      diff: "Niv.C : objectif de tenue (FT) · Niv.B : objectif de régularité · Niv.A : objectif de progression VMA" },
+
+    { titre: "S9 — Arbitrage, régulation collective et rôles sociaux",
+      tag: "seq3", couleur: "#b45309", phase: "🟤 Séq.3 — Autonomie & Arbitrage",
+      seq_op: "Séquence 3 · S9 — Maîtrise du rôle d'arbitre et régulation",
+      objectif: "Maîtriser le rôle d'arbitre/juge · Réguler une course en autonomie",
+      comp_vie: "CV3 — Fair-play et arbitrage · CV4 — Citoyenneté : responsabilité du rôle · CV2 : animation du groupe",
+      contenu: "Chaque élève assure le rôle d'arbitre/juge à tour de rôle · Notation officielle des temps · Signalement des infractions · Débat post-course sur les décisions",
+      organisation: "Groupes de 4 : rotation des rôles (coureur, arbitre, chronométreur, notateur)",
+      eval: "Précision de l'arbitrage · Acceptation des décisions · Qualité du feedback",
+      diff: "Niv.C : rôle guidé avec fiche d'arbitrage · Niv.A : arbitrage complet + commentaire tactique écrit" }
+  ],
+
+  // ── S10 : Évaluation Sommative (obligatoire OP 2009) ────
   eval: [
-    {
-      titre: "Évaluation formative — Bilan de progression",
-      tag: "eval", couleur: "#059669", phase: "🟢 Évaluation",
-      objectif: "Mesurer les acquis avant l'évaluation sommative · Identifier les derniers axes de travail",
-      contenu: "Course dans les conditions d'évaluation · Notation par pairs · Retour individualisé de l'enseignant",
-      organisation: "Conditions officielles · Jury composé de 2 élèves par coureur",
-      eval: "Grille APD provisoire · Note indicative /20 communiquée",
-      diff: "Régulation ciblée pour Niv.C · Défi de performance pour Niv.A"
-    },
-    {
-      titre: "Évaluation sommative officielle",
-      tag: "eval", couleur: "#059669", phase: "🟢 Évaluation",
+    { titre: "S10 — Évaluation sommative officielle",
+      tag: "eval", couleur: "#059669", phase: "🟢 S10 — Évaluation Sommative",
+      seq_op: "Séance 10 obligatoire · Évaluation sommative · OP 2009",
       objectif: "Évaluation certifiante · Application des barèmes officiels OP 2009",
-      contenu: "Course officielle · Grille APD 2026 : Performance (/6) + Régularité (/6) + Cible (/8) = /20",
-      organisation: "Conditions officielles · Enseignant + jury élèves",
-      eval: "Note /20 · Classement A/B/C · Bulletin de performance",
-      diff: "Aucune différenciation sur l'évaluation sommative"
-    },
-    {
-      titre: "Bilan de cycle — Auto-évaluation finale",
-      tag: "eval", couleur: "#059669", phase: "🟢 Évaluation",
-      objectif: "Construire le bilan personnel du cycle · Valoriser la progression",
-      contenu: "Remplissage du carnet de cycle · Comparaison VMA initiale vs finale · Lettre à soi-même pour le prochain cycle",
-      organisation: "Individuel puis partage collectif volontaire",
-      eval: "Carnet de cycle complet · Auto-évaluation cohérente",
-      diff: "Niv.C : trame guidée · Niv.A : libre + conseil pour prochain cycle"
-    }
+      comp_vie: "CV1 : mobiliser toutes ses ressources · CV4 : respecter le protocole officiel",
+      contenu: "Course officielle · Grille APD 2026 : Performance (/6) + Régularité (/6) + Cible (/8) = /20 · Auto-évaluation finale · Comparaison VMA initiale (S1) vs finale",
+      organisation: "Conditions officielles · Enseignant + jury élèves · Protocole OP 2009",
+      eval: "Note /20 · Classement A/B/C · Bulletin de performance · Bilan de cycle",
+      diff: "Aucune différenciation sur l'évaluation sommative · Barèmes officiels appliqués à tous" }
   ]
 };
 
-// --- Moteur principal de génération ---
+// ============================================================
+//  MOTEUR PRINCIPAL DE GÉNÉRATION — OP 2009
+// ============================================================
 function genererCycle() {
   const niveauVal = document.getElementById('plan-niveau').value;
   const nbSeances = parseInt(document.getElementById('plan-nb-seances').value);
-  const freq = parseInt(document.getElementById('plan-freq').value);
-  const duree = parseInt(document.getElementById('plan-duree').value);
-  const piste = parseInt(document.getElementById('plan-piste').value);
+  const freq      = parseInt(document.getElementById('plan-freq').value);
+  const duree     = parseInt(document.getElementById('plan-duree').value);
+  const piste     = parseInt(document.getElementById('plan-piste').value);
 
-  const isLycee = ['TC','1BAC','2BAC'].includes(niveauVal);
-  const profil = isLycee ? PLAN_DATA.lycee : PLAN_DATA.college;
+  const isLycee   = ['TC','1BAC','2BAC'].includes(niveauVal);
+  const profil    = isLycee ? PLAN_DATA.lycee : PLAN_DATA.college;
+  const otiData   = OP2009.OTI[niveauVal] || (isLycee ? OP2009.OTI['TC'] : OP2009.OTI['1AC']);
   const nbSemaines = Math.round(nbSeances / freq);
 
-  // Afficher le résumé
-  const resumeEl = document.getElementById('plan-resume');
-  const pill = isLycee ? 'plan-pill lycee' : 'plan-pill college';
-  resumeEl.innerHTML = `
-    <div class="info-tip">📚 <strong>${niveauVal}</strong></div>
+  // Résumé
+  document.getElementById('plan-resume').innerHTML = `
+    <div class="info-tip">📚 <strong>${niveauVal}</strong> — ${otiData.label}</div>
     <div class="info-tip">📅 <strong>${nbSeances} séances</strong> · ${nbSemaines} semaines</div>
     <div class="info-tip">⏱️ <strong>${duree} min</strong>/séance</div>
     <div class="info-tip">🏃 Piste <strong>${piste} m</strong></div>
-    <div class="info-tip">🎯 VMA cible : <strong>${profil.vmaBase}–${profil.vmaMax} %</strong></div>
+    <div class="info-tip">🎯 VMA cible : <strong>${otiData.vmaBase}–${otiData.vmaMax} %</strong></div>
+    <div class="info-tip" style="border-color:var(--accent2);color:var(--accent2);">📋 Structure OP 2009 : S1 Diag · Séq1·2·3 · S${nbSeances} Sommatif</div>
   `;
 
-  // Générer le planning des séances
-  const planning = distribuerSeances(nbSeances, isLycee);
+  // Générer le planning
+  const planning = distribuerSeancesOP2009(nbSeances, niveauVal, isLycee);
 
   // Construire le HTML
   const out = document.getElementById('plan-output');
-  out.innerHTML = buildCompetencesHTML(profil, niveauVal) +
+  out.innerHTML =
+    buildOTIBadge(niveauVal, otiData) +
+    buildCompetencesHTML(profil, niveauVal) +
+    buildCompVieHTML() +
     buildChronogrammeHTML(planning, nbSeances, niveauVal, nbSemaines, freq, isLycee) +
     buildSeancesDetaillees(planning, duree, niveauVal, isLycee) +
     buildIndicateursHTML(profil) +
     buildExportButtons(planning, niveauVal, nbSeances, duree);
 }
 
-// Distribuer les séances intelligemment selon le nb total
-function distribuerSeances(total, isLycee) {
-  // Règles de distribution : diag=1-2, eval=1-2(+1 si total>=8), reste=acq+renf
-  let nDiag = total <= 5 ? 1 : 2;
-  let nEval = total <= 5 ? 1 : total <= 8 ? 2 : 3;
-  let nMiddle = total - nDiag - nEval;
-
-  // Répartition acq/renf selon la taille
-  let nAcq, nRenf;
-  if (nMiddle <= 2) { nAcq = nMiddle; nRenf = 0; }
-  else if (nMiddle <= 4) { nAcq = Math.ceil(nMiddle * 0.6); nRenf = nMiddle - nAcq; }
-  else { nAcq = Math.ceil(nMiddle * 0.5); nRenf = nMiddle - nAcq; }
-
+// ── Distribution OP 2009 ──────────────────────────────────
+function distribuerSeancesOP2009(total, niveauVal, isLycee) {
+  // Structure fixe OP 2009 : S1=diag, S(n)=eval
+  // Séquences 1/2/3 se répartissent le milieu proportionnellement
   const planning = [];
-  let diagPool = [...SEANCE_POOL.diag];
-  let acqPool = [...SEANCE_POOL.acq];
-  let renfPool = [...SEANCE_POOL.renf];
-  let evalPool = [...SEANCE_POOL.eval];
 
-  // Pour lycée : adapter les contenus
-  function adaptLycee(s) {
-    if (!isLycee) return s;
-    return Object.assign({}, s, {
-      contenu: s.contenu.replace('VMA 70', 'VMA 80').replace('VMA 70–80', 'VMA 80–85').replace('≤ 15 sec', '≤ 8 sec'),
-      eval: s.eval.replace('≤ 15 sec', '≤ 8 sec').replace('≤ 12 sec', '≤ 8 sec')
-    });
+  // S1 toujours : diagnostic
+  planning.push(Object.assign({}, SEANCE_POOL.diag[0]));
+
+  // Séances centrales (entre S1 et dernière)
+  const nMiddle = total - 2;  // S1 et Sn sont fixes
+  let nSeq1, nSeq2, nSeq3;
+
+  if (nMiddle <= 0) {
+    nSeq1 = nSeq2 = nSeq3 = 0;
+  } else if (nMiddle <= 2) {
+    nSeq1 = nMiddle; nSeq2 = 0; nSeq3 = 0;
+  } else if (nMiddle <= 4) {
+    nSeq1 = Math.ceil(nMiddle / 2);
+    nSeq2 = nMiddle - nSeq1;
+    nSeq3 = 0;
+  } else if (nMiddle <= 7) {
+    // Répartition 3/3/1 ou 3/2/2
+    nSeq1 = Math.ceil(nMiddle * 0.40);
+    nSeq2 = Math.ceil(nMiddle * 0.35);
+    nSeq3 = nMiddle - nSeq1 - nSeq2;
+  } else {
+    // Standard OP 2009 sur 10 séances : 3/3/2
+    nSeq1 = Math.ceil(nMiddle * 0.38);
+    nSeq2 = Math.ceil(nMiddle * 0.35);
+    nSeq3 = nMiddle - nSeq1 - nSeq2;
   }
 
-  for (let i = 0; i < nDiag; i++) {
-    planning.push(adaptLycee(diagPool[i % diagPool.length]));
-  }
-  for (let i = 0; i < nAcq; i++) {
-    planning.push(adaptLycee(acqPool[i % acqPool.length]));
-  }
-  for (let i = 0; i < nRenf; i++) {
-    planning.push(adaptLycee(renfPool[i % renfPool.length]));
-  }
-  for (let i = 0; i < nEval; i++) {
-    planning.push(adaptLycee(evalPool[i % evalPool.length]));
-  }
+  // Peupler Séquence 1
+  const pool1 = [...SEANCE_POOL.seq1];
+  for (let i = 0; i < nSeq1; i++)
+    planning.push(Object.assign({}, pool1[i % pool1.length]));
 
-  // Numéroter
-  return planning.map((s, i) => Object.assign({}, s, { num: i + 1 }));
+  // Peupler Séquence 2
+  const pool2 = [...SEANCE_POOL.seq2];
+  for (let i = 0; i < nSeq2; i++)
+    planning.push(Object.assign({}, pool2[i % pool2.length]));
+
+  // Peupler Séquence 3
+  const pool3 = [...SEANCE_POOL.seq3];
+  for (let i = 0; i < nSeq3; i++)
+    planning.push(Object.assign({}, pool3[i % pool3.length]));
+
+  // Dernière séance toujours : évaluation sommative
+  planning.push(Object.assign({}, SEANCE_POOL.eval[0]));
+
+  // Adapter au niveau
+  const vma = OP2009.OTI[niveauVal] || { vmaBase: 70, vmaMax: 78 };
+  const adaptedPlanning = planning.map(s => {
+    let c = Object.assign({}, s);
+    if (isLycee) {
+      c.contenu = c.contenu.replace(/VMA 65/g,'VMA 78').replace(/VMA 70/g,'VMA 80')
+        .replace(/VMA 72/g,'VMA 80').replace(/VMA 75/g,'VMA 82')
+        .replace(/≤ 20 sec/g,'≤ 10 sec').replace(/≤ 15 sec/g,'≤ 8 sec');
+      c.eval = c.eval.replace(/≤ 20 sec/g,'≤ 10 sec').replace(/≤ 15 sec/g,'≤ 8 sec');
+    } else {
+      // Adapter selon niveau collège
+      if (niveauVal === '3AC') {
+        c.contenu = c.contenu.replace(/VMA 65/g,'VMA 72').replace(/VMA 68/g,'VMA 74');
+        c.eval = c.eval.replace(/≤ 20 sec/g,'≤ 12 sec');
+      } else if (niveauVal === '1AC') {
+        c.contenu = c.contenu.replace(/VMA 72/g,'VMA 65').replace(/VMA 75/g,'VMA 68');
+      }
+    }
+    return c;
+  });
+
+  return adaptedPlanning.map((s, i) => Object.assign({}, s, { num: i + 1 }));
 }
 
-// --- Constructeurs HTML ---
+// ── Constructeurs HTML ────────────────────────────────────
+
+function buildOTIBadge(niveauVal, otiData) {
+  return `
+  <div class="plan-cycle-card" style="margin-bottom:14px;border-left:4px solid var(--accent2);">
+    <div class="plan-cycle-header" style="background:var(--accent2);">
+      <div>
+        <div class="title">📌 Objectif Terminal d'Intégration (OTI) — ${niveauVal}</div>
+        <div class="meta">Orientations Pédagogiques Maroc · 2009 · ${otiData.label}</div>
+      </div>
+    </div>
+    <div class="plan-cycle-body" style="background:#f0f5ff;">
+      <p style="font-size:14px;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:10px;">
+        « ${otiData.oti} »
+      </p>
+      <div style="display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--border);
+        border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--accent2);">
+        🎯 Focus : ${otiData.focus}
+      </div>
+    </div>
+  </div>`;
+}
+
 function buildCompetencesHTML(profil, niveauVal) {
-  const pillClass = profil.pill;
-  const rows = profil.objectifs.map(o => `
+  const competences = profil.getCompetences(niveauVal);
+  const objectifs   = profil.getObjectifs(niveauVal);
+  const pillClass   = profil.pill;
+
+  const comps = competences.map(c => `
+    <div class="competence-badge">
+      <strong>${c.titre} :</strong> ${c.texte}
+    </div>`).join('');
+
+  const rows = objectifs.map(o => `
     <tr>
       <td><strong>${o.gen}</strong></td>
       <td>${o.spec}</td>
       <td>${o.indicateur}</td>
     </tr>`).join('');
-  const comps = profil.competences.map(c => `
-    <div class="competence-badge"><strong>${c.titre} :</strong> ${c.texte}</div>`).join('');
+
   return `
-  <div class="plan-cycle-card" style="margin-bottom:18px;">
+  <div class="plan-cycle-card" style="margin-bottom:14px;">
     <div class="plan-cycle-header">
       <div>
         <div class="title">🎯 Compétences Visées — ${niveauVal}
           <span class="plan-pill ${pillClass}" style="margin-left:8px;">${profil.pillLabel}</span>
         </div>
-        <div class="meta">Référentiel des Orientations Pédagogiques · APS : Course de Durée</div>
+        <div class="meta">Référentiel OP 2009 · APS : Course de Durée</div>
       </div>
     </div>
     <div class="plan-cycle-body">
       ${comps}
       <table class="obj-table" style="margin-top:16px;">
-        <thead><tr><th>Objectif Général</th><th>Objectifs Spécifiques</th><th>Indicateurs de réussite</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Objectif Général</th>
+            <th>Objectifs Spécifiques</th>
+            <th>Indicateurs de réussite</th>
+          </tr>
+        </thead>
         <tbody>${rows}</tbody>
       </table>
     </div>
   </div>`;
 }
 
-function buildChronogrammeHTML(planning, total, niveauVal, semaines, freq, isLycee) {
-  const pillClass = isLycee ? 'lycee' : 'college';
-  const tagColors = { diag: '#0891b2', acq: '#1d4ed8', renf: '#7c3aed', eval: '#059669' };
-  const phaseColors = { diag: 'phase-eval', acq: 'phase-acq', renf: 'phase-acq', eval: 'phase-bilan' };
+function buildCompVieHTML() {
+  const cvCards = OP2009.COMPETENCES_VIE.map(cv => `
+    <div class="eval-item" style="border-left:3px solid var(--accent2);">
+      <div class="eval-item-title">${cv.code} — ${cv.titre}</div>
+      <div style="font-size:12px;color:var(--muted);">${cv.desc}</div>
+    </div>`).join('');
 
-  let rows = planning.map((s, i) => {
-    const isLast = i === planning.length - 1;
-    const lastClass = isLast ? 'chrono-row-last' : '';
-    return `
-      <div class="chrono-cell seq-num" style="background:${tagColors[s.tag]}">${s.num}</div>
-      <div class="chrono-cell ${phaseColors[s.tag]} ${lastClass}">
-        <strong>${s.titre}</strong><br>
-        <span style="font-size:11px;color:var(--muted);">${s.phase}</span>
+  return `
+  <div class="plan-cycle-card" style="margin-bottom:14px;">
+    <div class="card-header" style="background:#1e293b;">
+      🌱 Compétences de Vie à Intégrer — OP 2009 (Savoir-être)
+    </div>
+    <div class="plan-cycle-body">
+      <div class="eval-grid">
+        ${cvCards}
       </div>
-      <div class="chrono-cell ${phaseColors[s.tag]} ${lastClass}">${s.contenu.split('·')[0].trim()}</div>
-      <div class="chrono-cell ${phaseColors[s.tag]} ${lastClass}">${s.eval.split('·')[0].trim()}</div>`;
+    </div>
+  </div>`;
+}
+
+function buildChronogrammeHTML(planning, total, niveauVal, semaines, freq, isLycee) {
+  const pillClass  = isLycee ? 'lycee' : 'college';
+  const tagColors  = { diag:'#0891b2', seq1:'#1d4ed8', seq2:'#7c3aed', seq3:'#b45309', eval:'#059669' };
+  const phaseBg    = { diag:'phase-eval', seq1:'phase-acq', seq2:'phase-acq', seq3:'phase-acq', eval:'phase-bilan' };
+
+  const rows = planning.map((s, i) => {
+    const isLast   = i === planning.length - 1;
+    const lastCls  = isLast ? 'chrono-row-last' : '';
+    const bg       = tagColors[s.tag] || '#64748b';
+    const phaseCls = phaseBg[s.tag]  || 'phase-acq';
+    const seqBadge = s.seq_op
+      ? `<span style="font-size:10px;color:var(--muted);display:block;margin-top:2px;">${s.seq_op}</span>`
+      : '';
+    return `
+      <div class="chrono-cell seq-num" style="background:${bg};">${s.num}</div>
+      <div class="chrono-cell ${phaseCls} ${lastCls}">
+        <strong>${s.titre}</strong>
+        ${seqBadge}
+      </div>
+      <div class="chrono-cell ${phaseCls} ${lastCls}">${s.contenu.split('·')[0].trim()}</div>
+      <div class="chrono-cell ${phaseCls} ${lastCls}">${s.eval.split('·')[0].trim()}</div>`;
   }).join('');
 
   return `
-  <div class="plan-cycle-card" style="margin-bottom:18px;">
+  <div class="plan-cycle-card" style="margin-bottom:14px;">
     <div class="plan-cycle-header">
       <div>
-        <div class="title">📅 Chronogramme du Cycle — ${total} Séances
+        <div class="title">📅 Chronogramme — ${total} Séances · Structure OP 2009
           <span class="plan-pill ${pillClass}" style="margin-left:8px;">${niveauVal}</span>
         </div>
-        <div class="meta">Durée estimée : ${semaines} semaines · Fréquence : ${freq} séance(s)/semaine</div>
+        <div class="meta">
+          ${semaines} semaines · ${freq} séance(s)/sem. ·
+          S1 : Diagnostic · Séq.1(S2→S${1+Math.ceil((total-2)*0.38)}) · Séq.2 · Séq.3 · S${total} : Sommatif
+        </div>
       </div>
-      <button class="download-btn" onclick="exportCycleCSV()">⬇️ Exporter le cycle CSV</button>
+      <button class="download-btn" onclick="exportCycleCSV()">⬇️ Exporter CSV</button>
     </div>
     <div class="plan-cycle-body" style="overflow-x:auto;">
-      <div class="chrono-grid" style="min-width:600px;">
+      <div class="chrono-grid" style="min-width:620px;">
         <div class="chrono-cell header">N°</div>
-        <div class="chrono-cell header">Séance / Objectif</div>
+        <div class="chrono-cell header">Séance / Séquence OP 2009</div>
         <div class="chrono-cell header">Contenu principal</div>
         <div class="chrono-cell header">Évaluation</div>
         ${rows}
       </div>
-      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-        <span style="font-size:11px;background:#e0f2fe;color:#0369a1;padding:3px 10px;border-radius:4px;font-weight:600;">🔵 Diagnostic</span>
-        <span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:4px;font-weight:600;">🟡 Acquisition</span>
-        <span style="font-size:11px;background:#ede9fe;color:#5b21b6;padding:3px 10px;border-radius:4px;font-weight:600;">🟠 Renforcement</span>
-        <span style="font-size:11px;background:#d1fae5;color:#065f46;padding:3px 10px;border-radius:4px;font-weight:600;">🟢 Évaluation</span>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-size:11px;background:#e0f2fe;color:#0369a1;padding:3px 10px;border-radius:4px;font-weight:600;">🔵 S1 — Diagnostic</span>
+        <span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:4px;font-weight:600;">🟡 Séq.1 — Fondamentaux</span>
+        <span style="font-size:11px;background:#ede9fe;color:#5b21b6;padding:3px 10px;border-radius:4px;font-weight:600;">🟠 Séq.2 — Tactique</span>
+        <span style="font-size:11px;background:#fef3c7;color:#92400e;padding:3px 10px;border-radius:4px;font-weight:600;">🟤 Séq.3 — Autonomie</span>
+        <span style="font-size:11px;background:#d1fae5;color:#065f46;padding:3px 10px;border-radius:4px;font-weight:600;">🟢 Sn — Évaluation</span>
       </div>
     </div>
   </div>`;
 }
 
 function buildSeancesDetaillees(planning, duree, niveauVal, isLycee) {
-  const tMise = Math.round(duree * 0.15);
+  const tMise  = Math.round(duree * 0.15);
   const tBilan = Math.round(duree * 0.15);
   const tCorps = duree - tMise - tBilan;
-  const tagColors = { diag: '#0891b2', acq: '#1d4ed8', renf: '#7c3aed', eval: '#059669' };
+  const tagColors = { diag:'#0891b2', seq1:'#1d4ed8', seq2:'#7c3aed', seq3:'#b45309', eval:'#059669' };
 
-  const cards = planning.map(s => `
+  const cards = planning.map(s => {
+    const bg = tagColors[s.tag] || '#64748b';
+    const compVieBadge = s.comp_vie
+      ? `<div class="eval-item" style="border-left:3px solid var(--green);">
+           <div class="eval-item-title">🌱 Compétences de Vie</div>
+           <div style="font-size:12px;">${s.comp_vie}</div>
+         </div>`
+      : '';
+    const seqBadge = s.seq_op
+      ? `<div style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.7);margin-top:3px;">📋 ${s.seq_op}</div>`
+      : '';
+    return `
     <div class="plan-cycle-card" style="margin-bottom:12px;">
-      <div class="plan-cycle-header" style="background:${tagColors[s.tag]};">
+      <div class="plan-cycle-header" style="background:${bg};">
         <div>
           <div class="title">Séance ${s.num} — ${s.titre}</div>
-          <div class="meta">${s.phase} · Durée : ${duree} min · ${niveauVal}</div>
+          ${seqBadge}
+          <div class="meta">${s.phase} · ${duree} min · ${niveauVal}</div>
         </div>
       </div>
       <div class="plan-cycle-body">
         <table class="obj-table">
-          <thead><tr><th>Phase</th><th>Durée</th><th>Objectif</th><th>Contenu / Situation</th><th>Organisation</th></tr></thead>
+          <thead>
+            <tr><th>Phase</th><th>Durée</th><th>Objectif</th><th>Contenu / Situation d'apprentissage</th><th>Organisation</th></tr>
+          </thead>
           <tbody>
             <tr>
               <td><strong>🔴 Mise en train</strong></td>
               <td>${tMise} min</td>
-              <td>Activation cardio · Mobilisation articulaire · Rappel de l'objectif</td>
-              <td>Footing léger ${Math.round(tMise*0.5)} min · Gammes de course · Rappel verbal de la cible VMA</td>
+              <td>Activation cardio-respiratoire · Mobilisation articulaire · Rappel de l'objectif de séance</td>
+              <td>Footing léger ${Math.round(tMise*0.5)} min · Gammes de course · Rappel verbal de l'OTI et de la cible VMA</td>
               <td>Collectif</td>
             </tr>
             <tr>
@@ -3290,8 +3496,8 @@ function buildSeancesDetaillees(planning, duree, niveauVal, isLycee) {
             <tr>
               <td><strong>🟢 Bilan</strong></td>
               <td>${tBilan} min</td>
-              <td>Auto-évaluation · Calcul des écarts · Formulation de l'objectif suivant</td>
-              <td>Remplissage fiche · Échanges binôme · Objectif S${s.num+1 <= planning.length ? s.num+1 : '—'}</td>
+              <td>Auto-évaluation · Calcul des écarts · Lien avec les Compétences de Vie · Formulation de l'objectif suivant</td>
+              <td>Remplissage fiche · Échange en binôme · Objectif S${s.num < planning.length ? s.num+1 : '—'} · Retour sur CV</td>
               <td>Individuel → Collectif</td>
             </tr>
           </tbody>
@@ -3302,16 +3508,18 @@ function buildSeancesDetaillees(planning, duree, niveauVal, isLycee) {
             <div style="font-size:12px;">${s.eval}</div>
           </div>
           <div class="eval-item">
-            <div class="eval-item-title">🔧 Différenciation</div>
+            <div class="eval-item-title">🔧 Différenciation A/B/C</div>
             <div style="font-size:12px;">${s.diff}</div>
           </div>
+          ${compVieBadge}
         </div>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 
   return `
   <div style="margin-bottom:6px;">
-    <div class="section-divider"><span>📄 Fiches Séances Détaillées (${planning.length} séances)</span></div>
+    <div class="section-divider"><span>📄 Fiches Séances Détaillées — ${planning.length} séances · OP 2009</span></div>
     <details open>
       <summary style="cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;
         padding:10px 16px;background:var(--stripe);border:1px solid var(--border);border-radius:7px;
@@ -3335,7 +3543,7 @@ function buildIndicateursHTML(profil) {
     </div>`).join('');
   return `
   <div class="plan-cycle-card" style="margin-bottom:18px;">
-    <div class="plan-cycle-header"><span>📈 Indicateurs de Progression du Cycle</span></div>
+    <div class="plan-cycle-header"><span>📈 Indicateurs de Progression du Cycle · OP 2009</span></div>
     <div class="plan-cycle-body">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
         ${bars}
@@ -3352,20 +3560,22 @@ function buildExportButtons(planning, niveauVal, total, duree) {
   </div>`;
 }
 
+
 // Export CSV du cycle complet
 function exportCycleCSV() {
   const niveauVal = document.getElementById('plan-niveau').value;
-  const duree = document.getElementById('plan-duree').value;
+  const duree     = document.getElementById('plan-duree').value;
   const nbSeances = document.getElementById('plan-nb-seances').value;
-  const freq = document.getElementById('plan-freq').value;
+  const freq      = document.getElementById('plan-freq').value;
 
-  const isLycee = ['TC','1BAC','2BAC'].includes(niveauVal);
-  const planning = distribuerSeances(parseInt(nbSeances), isLycee);
+  const isLycee  = ['TC','1BAC','2BAC'].includes(niveauVal);
+  const planning = distribuerSeancesOP2009(parseInt(nbSeances), niveauVal, isLycee);
 
   const rows = [
-    ['N°','Phase','Titre','Objectif','Contenu','Organisation','Évaluation','Différenciation'],
+    ['N°','Séquence OP 2009','Titre','Objectif','Comp. de Vie','Contenu','Organisation','Évaluation','Différenciation A/B/C'],
     ...planning.map(s => [
-      s.num, s.phase, s.titre, s.objectif, s.contenu, s.organisation, s.eval, s.diff
+      s.num, s.seq_op || s.phase, s.titre, s.objectif,
+      s.comp_vie || '', s.contenu, s.organisation, s.eval, s.diff
     ])
   ];
   const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
@@ -3373,7 +3583,7 @@ function exportCycleCSV() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `Projet_Cycle_CoursDuree_${niveauVal}_${nbSeances}seances.csv`;
+  a.download = `ProjetCycle_OP2009_${niveauVal}_${nbSeances}seances.csv`;
   a.click();
 }
 
@@ -3532,8 +3742,10 @@ if (track) {
 // ── SMOOTH SCROLL for anchor links ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
     e.preventDefault();
-    const _h = a.getAttribute('href'); if (!_h || _h === '#') return; const target = document.querySelector(_h);
+    const target = document.querySelector(href);
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 });
